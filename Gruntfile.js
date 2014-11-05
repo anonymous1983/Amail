@@ -30,7 +30,7 @@ module.exports = function(grunt) {
   	less: {
       dev: {
         options: {
-          banner: '/* \n  Generates stylesheet file \n  Date : <%= grunt.template.today("yyyy-mm-dd HH:MM") %> \n*/'
+          banner: '/* \n  Generates stylesheet file \n  Date : <%= grunt.template.today("yyyy-mm-dd HH:MM") %> \n*/\n'
         },
         files: {
           "assets/dist/stylesheet/dev/style.css": ["assets/src/stylesheet/style.less"]
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
           //paths: ["assets/css"],
           compress:true,
           cleancss: true,
-          banner: '/* \n  Generates minified stylesheet file \n  Date : <%= grunt.template.today("yyyy-mm-dd HH:MM") %> \n*/',
+          banner: '/* \n  Generates minified stylesheet file \n  Date : <%= grunt.template.today("yyyy-mm-dd HH:MM") %> \n*/\n',
           modifyVars: {
             imgPath: '"'+G.host+G.paths.prod.img+'"',
             bgColor: '#f00'
@@ -53,7 +53,25 @@ module.exports = function(grunt) {
       }
     },
     // JS :: minification and compression
-
+    uglify: {
+      dev: {
+        options: {
+          banner: '/* \n  Generates JavaScript file \n  Date : <%= grunt.template.today("yyyy-mm-dd HH:MM") %> \n*/\n',
+          beautify: true
+        },
+        files: {
+          'assets/dist/javaccript/dev/script.js': ['assets/src/javascript/script.js']
+        }
+      },
+      prod: {
+        options: {
+          banner: '/* \n  Generates minified JavaScript file \n  Date : <%= grunt.template.today("yyyy-mm-dd HH:MM") %> \n*/\n'
+        },
+        files: {
+          'assets/dist/javaccript/prod/script.min.js': ['components/angularjs/angular.js', 'assets/src/javascript/script.js']
+        }
+      }
+    },
     // WATCH
     watch: {
       //scripts: {
@@ -73,12 +91,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task')
   grunt.loadNpmTasks('grunt-contrib-less')
   grunt.loadNpmTasks('grunt-contrib-cssmin')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
   // Définition des tâches Grunt
   grunt.registerTask('app-init', ['bower'])
-  grunt.registerTask('app-dev', ['less:dev'])
-  grunt.registerTask('app-prod', ['less:prod'])
+  grunt.registerTask('app-dev', ['less:dev', 'uglify:dev'])
+  grunt.registerTask('app-prod', ['less:prod', 'uglify:prod'])
   grunt.registerTask('app-build', ['app-dev', 'app-prod'])
 
 }
