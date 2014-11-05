@@ -1,9 +1,11 @@
 @import "extends/reset.less";
+@import "extends/variables.less";
 @import "extends/functions.less";
 @import "extends/icons.less";
 @import "style.charte.less";
 @import "style.mq.less";
 body{
-	background: #f00;
+	background: @bgColor url("@{imgPath}image.png");
   .clear-img();
+  text-align: center;
 }
