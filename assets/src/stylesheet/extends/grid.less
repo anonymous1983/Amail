@@ -1,0 +1,106 @@
+/**
+ *
+ * Grid layout
+ *
+ */
+
+/**
+ * @layot Container
+ *
+ */
+ .container {
+    max-width:@container-max-width;
+    margin:0 auto;
+    position:relative;
+    padding:0 30px;
+    /**
+     * @layot Box
+     *
+     */
+    .box {
+        margin-left: 15px;
+        margin-right: 15px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    /**
+     *
+     * @Grid grid >> Global
+     *
+     */
+    .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12 {
+        display:inline;
+        float: left;
+        position: relative;
+        margin:0;
+    }
+    /**
+     *
+     * @Grid grid >> GRID_6
+     *
+     */
+    .init-generate-grid(6);
+    }
+/**
+*
+* @Grid grid >> Children (Alpha ~ First, Omega ~ Last)
+*
+*/
+ .alpha {
+    margin-left: 0 !important;
+}
+.omega {
+    margin-right: 0 !important;
+}
+/**
+*
+* @Clear Floated Elements
+*
+*/
+
+/* http://sonspring.com/journal/clearing-floats */
+ .clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+ .clearfix:before, .clearfix:after, .mod-row:before, .mod-row:after, .container_5:before, .container_5:after, .container_6:before, .container_6:after, .container_12:before, .container_12:after {
+    content:'\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.clearfix:after, .mod-row:after, .container_5:after, .container_6:after, .container_12:after {
+    clear: both;
+}
+/*
+ The following zoom:1 rule is specifically for IE6 + IE7.
+ Move to separate stylesheet if invalid CSS is a problem.
+*/
+ .clearfix, .mod-row, .container_5, .container_6, .container_12 {
+    zoom: 1;
+}
+/**
+ *
+ * @Functions
+ *
+ */
+ .init-generate-grid(@n) {
+    .container_@{n} {
+        width:100%;
+    }
+    .generate-grid(@n);
+}
+.generate-grid(@n, @i: 1) when (@i=< @n) {
+    .container_@{n} .grid_@{i}, .container_@{n} .w_@{i} {
+        width: (@i * 100% / @n);
+    }
+    .generate-grid(@n, (@i + 1));
+}
