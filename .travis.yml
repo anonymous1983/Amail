@@ -7,3 +7,9 @@ before_install:
 after_success :
   - grunt app-init
   - grunt app-build
+notifications:
+  email:
+    recipients:
+      - anab.tn@gmail.com
+    on_success: [always|never|change] # default: change
+    on_failure: [always|never|change] # default: always
