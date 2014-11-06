@@ -1,4 +1,4 @@
-(function() {
+(function(angular) {
   var app = angular.module('gemStore', []);
 
   app.controller('StoreController', function() {
@@ -41,4 +41,4 @@
       "http://placehold.it/150x150/9b59b6/ffffff/&text=gem-06"
     ]
   }];
-})();
+})(angular);

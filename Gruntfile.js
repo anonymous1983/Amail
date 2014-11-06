@@ -1,9 +1,20 @@
 var G ={
   host: "http://amail.com.local/",
   paths: {
-    src: {},
-    dev: {},
+    spec: "assets/spec/",
+    src: {
+      js: "assets/src/javascript/",
+      css: "assets/src/stylesheet/",
+      img: "assets/src/images/"
+    },
+    dev: {
+      js: "assets/dist/javascript/dev/",
+      css: "assets/dist/stylesheet/dev/",
+      img: "assets/dist/images/dev/"
+    },
     prod: {
+      js: "assets/dist/javascript/prod/",
+      css: "assets/dist/stylesheet/prod/",
       img: "assets/dist/images/prod/"
     }
   }
@@ -60,7 +71,7 @@ module.exports = function(grunt) {
           beautify: true
         },
         files: {
-          'assets/dist/javaccript/dev/script.js': ['assets/src/javascript/script.js']
+          'assets/dist/javascript/dev/script.js': ['assets/src/javascript/script.js']
         }
       },
       prod: {
@@ -68,7 +79,23 @@ module.exports = function(grunt) {
           banner: '/* \n  Generates minified JavaScript file \n  Date : <%= grunt.template.today("yyyy-mm-dd HH:MM") %> \n*/\n'
         },
         files: {
-          'assets/dist/javaccript/prod/script.min.js': ['components/angularjs/angular.js', 'assets/src/javascript/script.js']
+          'assets/dist/javascript/prod/script.min.js': ['components/angularjs/angular.js', 'assets/src/javascript/script.js']
+        }
+      }
+    },
+    // JASMINE :: Testing JavaScript Code
+    jasmine: {
+      pivotal: {
+        src: G.paths.dev.js+'**/*.js',
+        options: {
+          vendor: 'components/angularjs/angular.min.js',
+          specs: G.paths.spec+'/*Spec.js',
+          junit: {
+            path: 'junit/xml/',
+            //dn: true, //in grunt-contrib-jasmine/tasks/jasmine.js var d = (options.junit.dn)? Date() + ' - ' : '';
+            consolidate: true
+          }
+          //helpers: 'spec/*Helper.js'
         }
       }
     },
@@ -93,10 +120,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin')
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-jasmine')
 
   // Définition des tâches Grunt
   grunt.registerTask('app-init', ['bower'])
-  grunt.registerTask('app-dev', ['less:dev', 'uglify:dev'])
+  grunt.registerTask('app-dev', ['less:dev', 'uglify:dev', 'jasmine'])
   grunt.registerTask('app-prod', ['less:prod', 'uglify:prod'])
   grunt.registerTask('app-build', ['app-dev', 'app-prod'])
 

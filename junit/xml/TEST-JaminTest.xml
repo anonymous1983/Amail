@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+
+  <testsuite name="Jamin Test" errors="0" tests="1" failures="0" time="0.002" timestamp="Thu Nov 06 2014 13:30:11 GMT+0100 (CET)">
+    
+      <testcase assertions="0" classname="Jamin Test" name="b is true because it&#x27;s true man" time="0.002">
+        
+      </testcase>
+    
+  </testsuite>
+
+</testsuites>
