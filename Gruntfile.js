@@ -92,7 +92,7 @@ module.exports = function(grunt) {
           specs: G.paths.spec+'/*Spec.js',
           junit: {
             path: 'junit/xml/',
-            //dn: true, //in grunt-contrib-jasmine/tasks/jasmine.js var d = (options.junit.dn)? Date() + ' - ' : '';
+            dn: true, //in grunt-contrib-jasmine/tasks/jasmine.js var d = (options.junit.dn)? Date() + ' - ' : '';
             consolidate: true
           }
           //helpers: 'spec/*Helper.js'
