@@ -71,7 +71,7 @@ module.exports = function(grunt) {
           beautify: true
         },
         files: {
-          'assets/dist/javascript/dev/script.js': ['assets/src/javascript/script.js']
+          'assets/dist/javascript/dev/script.js': ['assets/src/javascript/client-side/script.js']
         }
       },
       prod: {
