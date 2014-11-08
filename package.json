@@ -1,23 +1,21 @@
 {
   "name": "Amail",
   "version": "0.1.0",
-  "main": "server.js",
+  "main": "assets/src/javascript/server-side/server.js",
   "bin": {
     "module-name": "./bin/node_module"
   },
   "dependencies": {
     "socket.io": "~0.9.16",
     "ent": "~0.1.0",
-    "nodemon": "~1.0.17",
-    "body-parser": "~1.0.1",
-    "mysql": "*",
-    "sequelize": "*",
-    "crypto": "*"
+    "nodemon": "~1.0.17"
   },
   "author": "ANIS ABID <contact@anisabid.com>",
-  "description": "à gréât real-time email with tech NodeJS (socket.io / REST), AngularJS, MySQL  temps réel avec socket.io",
+  "description": "A great real-time email with tech NodeJS (socket.io / REST), AngularJS, MySQL  temps réel avec socket.io",
   "devDependencies": {
+    "body-parser": "^1.0.2",
     "bower": "^1.3.12",
+    "crypto": "0.0.3",
     "express": "^4.0.0",
     "grunt": "^0.4.5",
     "grunt-bower-task": "^0.4.0",
@@ -27,7 +25,10 @@
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "mongoose": "^3.8.18",
+    "mysql": "^2.5.3",
     "node-mysql": "^0.4.0",
-    "node-restful": "^0.1.17"
+    "node-restful": "^0.1.17",
+    "prettyjson": "^1.0.0",
+    "sequelize": "^2.0.0-rc2"
   }
 }
