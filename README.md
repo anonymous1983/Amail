@@ -21,6 +21,7 @@ Assuming that the Grunt CLI has been installed and that the project has already 
 1. Change to the project's root directory.
 2. Install project dependencies with `npm install`.
 3. To build resources :
+
 * `grunt app-init` : Install bowr dependencies
 * `grunt app-dev` : Install dev environment
 * `grunt pp-prod`: Install prod environment
