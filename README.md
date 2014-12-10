@@ -3,6 +3,23 @@ Amail [![Build Status: Linux](https://travis-ci.org/anonymous1983/Amail.svg?bran
 
 Inbox Amail is a mail management width NodeJS, AngularJS, MySQL, REST
 
+### Required :
+* Make sure a Grunt module is installed :
+```sh
+npm -g ls --depth=0
+```
+* Install Grunt's command line interface (CLI) globally. You may need to use sudo (for OSX, *nix, BSD etc) or run your command shell as Administrator (for Windows) to do this :
+```sh
+npm install -g grunt-cli
+```
+
 
 ### To build:
+Unix/Macintosh:
 
+Change to the project's root directory.
+```sh
+
+make
+make install
+```
