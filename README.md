@@ -14,10 +14,14 @@ npm install -g grunt-cli
 ```
 
 
-### To build:
+### Build Project:
 Unix/Macintosh:
+Assuming that the Grunt CLI has been installed and that the project has already been configured with a `package.json` and a `Gruntfile`, it's very easy to start working with Grunt:
 
-Change to the project's root directory.
+1. Change to the project's root directory.
+2. Install project dependencies with `npm install`.
+
+
 ```sh
 
 make
