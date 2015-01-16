@@ -24,5 +24,5 @@ Assuming that the Grunt CLI has been installed and that the project has already 
 
 * `grunt app-init` : Install bowr dependencies
 * `grunt app-dev` : Install dev environment
-* `grunt pp-prod`: Install prod environment
+* `grunt app-prod`: Install prod environment
 * `grunt app-build` : Install dev & prod environments
